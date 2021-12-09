@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/eliecer-david/todo_console/issues"
   },
-  "homepage": "https://github.com/eliecer-david/todo_console#readme"
+  "homepage": "https://github.com/eliecer-david/todo_console#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
 }
