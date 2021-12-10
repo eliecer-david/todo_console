@@ -23,12 +23,26 @@ const showMenu = () => {
 
     readline.question('Choose an option: ', (option) => {
       readline.close();
-
       resolve(option);
     });
   });
 }
 
+const showConfirmation = () => {
+  return new Promise((resolve) => {
+    const readline = require('readline').createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    readline.question(`Press ${ 'any key'.green } to continue ...`, () => {
+      readline.close();
+      resolve();
+    });
+  });
+}
+
 module.exports = {
-  showMenu
+  showMenu,
+  showConfirmation
 }

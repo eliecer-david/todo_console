@@ -1,6 +1,6 @@
 require('colors');
 
-const { showMenu } = require('./helpers/messages');
+const { showMenu, showConfirmation } = require('./helpers/messages');
 
 console.clear();
 
@@ -9,6 +9,8 @@ const main = async () => {
 
   do {
     option = await showMenu();
+
+    if  (option !== '0') await showConfirmation();
   } while (option !== '0')
 }
 
