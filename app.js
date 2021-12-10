@@ -6,13 +6,12 @@ const { showConfirmation } = require('./helpers/messages');
 console.clear();
 
 const main = async () => {
-  let selectedOption = '';
+  let option = '';
   do {
-    selectedOption = (await inquirerMenu()).option;
-    console.log(selectedOption);
+    option = await inquirerMenu();
 
-    if  (selectedOption != 0) await showConfirmation();
-  } while (selectedOption != 0)
+    if  (option != 0) await showConfirmation();
+  } while (option != 0)
 }
 
 main();
