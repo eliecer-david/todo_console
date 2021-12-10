@@ -1,17 +1,18 @@
 require('colors');
 
-const { showMenu, showConfirmation } = require('./helpers/messages');
+const { inquirerMenu } = require('./helpers/inquirer');
+const { showConfirmation } = require('./helpers/messages');
 
 console.clear();
 
 const main = async () => {
-  let option = '';
-
+  let selectedOption = '';
   do {
-    option = await showMenu();
+    selectedOption = (await inquirerMenu()).option;
+    console.log(selectedOption);
 
-    if  (option !== '0') await showConfirmation();
-  } while (option !== '0')
+    if  (selectedOption != 0) await showConfirmation();
+  } while (selectedOption != 0)
 }
 
 main();
