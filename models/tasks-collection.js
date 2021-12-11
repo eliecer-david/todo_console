@@ -2,8 +2,8 @@ const Task = require('./task');
 
 class TasksCollection {
 
-  constructor() {
-    this.tasks = {};
+  constructor(data) {
+    this.tasks = data;
   }
 
   get arrayTasks() {
