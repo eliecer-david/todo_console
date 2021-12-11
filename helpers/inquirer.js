@@ -86,6 +86,23 @@ const showTasksToDelete = async (tasks = []) => {
   return id;
 }
 
+const confirmQuestion = async (message) => {
+  const questions = [
+    {
+      type: 'confirm',
+      name: 'confirm',
+      message
+    }
+  ];
+
+  const { confirm } = await inquirer.prompt(questions);
+  return confirm;
+}
+
 module.exports = {
-  inquirerMenu, pause, readInput, showTasksToDelete
+  inquirerMenu,
+  pause,
+  readInput,
+  showTasksToDelete,
+  confirmQuestion
 }

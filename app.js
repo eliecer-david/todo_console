@@ -4,7 +4,8 @@ const {
   inquirerMenu,
   pause,
   readInput,
-  showTasksToDelete
+  showTasksToDelete,
+  confirmQuestion
 } = require('./helpers/inquirer');
 const { saveData, readData } = require('./helpers/storage-manager');
 const TasksCollection = require('./models/tasks-collection');
@@ -42,7 +43,12 @@ const main = async () => {
 
       case 6:
         const id = await showTasksToDelete(tasksCollection.tasksArray);
-        tasksCollection.deleteTask(id);
+        const confirm = await confirmQuestion('Are you sure?');
+
+        if (confirm) {
+          tasksCollection.deleteTask(id);
+          console.log('Task was deleted successfully.');
+        }
         break;
     }
 
