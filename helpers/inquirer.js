@@ -63,6 +63,29 @@ const readInput = async (message) => {
   return input;
 }
 
+const showTasksToDelete = async (tasks = []) => {
+  const choices = tasks.map((task, key) => {
+    const index = key + 1;
+
+    return {
+      value: task.id,
+      name: `${ (index + '.').cyan } ${ task.description }`
+    }
+  });
+
+  const options = [
+    {
+      type: 'list',
+      name: 'id',
+      message: 'Select a task',
+      choices
+    }
+  ];
+
+  const { id } = await inquirer.prompt(options);
+  return id;
+}
+
 module.exports = {
-  inquirerMenu, pause, readInput
+  inquirerMenu, pause, readInput, showTasksToDelete
 }

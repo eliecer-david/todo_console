@@ -24,6 +24,10 @@ class TasksCollection {
     this.tasks[task.id] = task;
   }
 
+  deleteTask(id) {
+    delete this.tasks[id];
+  }
+
   loadTasksFromArray(array = []) {
     array.forEach((value) => {
       this.tasks[value.id] = value;
@@ -32,7 +36,7 @@ class TasksCollection {
 
   showAllTasksFormatted() {
     this.tasksArray.forEach((task, key) => {
-      const index = `${key + 1}`;
+      const index = key + 1;
       console.log(`${ (index + '.').cyan } ${ task.description } :: ${ task.completedAt ? 'completed'.cyan : 'pending'.red }`);
     });
   }
@@ -41,7 +45,7 @@ class TasksCollection {
     this.tasksArray
       .filter(task => task.completedAt)
       .forEach((task, key) => {
-        const index = `${key + 1}`;
+        const index = key + 1;
         console.log(`${ (index + '.').cyan } ${ task.description }`);
       });
   }
@@ -50,7 +54,7 @@ class TasksCollection {
     this.tasksArray
       .filter(task => ! task.completedAt)
       .forEach((task, key) => {
-        const index = `${key + 1}`;
+        const index = key + 1;
         console.log(`${ (index + '.').cyan } ${ task.description }`);
       });
   }

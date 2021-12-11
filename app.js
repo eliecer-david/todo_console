@@ -1,6 +1,11 @@
 require('colors');
 
-const { inquirerMenu, pause, readInput } = require('./helpers/inquirer');
+const {
+  inquirerMenu,
+  pause,
+  readInput,
+  showTasksToDelete
+} = require('./helpers/inquirer');
 const { saveData, readData } = require('./helpers/storage-manager');
 const TasksCollection = require('./models/tasks-collection');
 
@@ -33,6 +38,11 @@ const main = async () => {
       case 4:
         console.log();
         tasksCollection.showPendingTasksFormatted();
+        break;
+
+      case 6:
+        const id = await showTasksToDelete(tasksCollection.tasksArray);
+        tasksCollection.deleteTask(id);
         break;
     }
 
