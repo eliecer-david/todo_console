@@ -1,8 +1,8 @@
 class TasksCollection {
 
-    constructor() {
-        this.tasks = {};
-    }
+  constructor() {
+    this.tasks = {};
+  }
 }
 
 module.exports = TasksCollection;
