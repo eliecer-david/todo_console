@@ -21,7 +21,8 @@ const main = async () => {
         break;
 
       case 2:
-        console.log(tasksCollection.tasksArray);
+        console.log();
+        tasksCollection.showAllTaskFormatted();
         break;
     }
 

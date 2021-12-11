@@ -1,3 +1,5 @@
+require('colors');
+
 const Task = require('./task');
 
 class TasksCollection {
@@ -25,6 +27,14 @@ class TasksCollection {
   loadTasksFromArray(array = []) {
     array.forEach((value) => {
       this.tasks[value.id] = value;
+    });
+  }
+
+  showAllTaskFormatted() {
+    this.tasksArray.forEach((task, key) => {
+      const index = `${key + 1}`;
+
+      console.log(`${ index.cyan } ${ task.description } :: ${ task.completedAt ? 'completed'.cyan : 'pending'.red }`);
     });
   }
 }
