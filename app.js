@@ -1,6 +1,6 @@
 require('colors');
 
-const { inquirerMenu, pause } = require('./helpers/inquirer');
+const { inquirerMenu, pause, readInput } = require('./helpers/inquirer');
 const TasksCollection = require('./models/tasks-collection');
 
 const main = async () => {
@@ -13,6 +13,8 @@ const main = async () => {
 
     switch (option) {
       case 1:
+        const description = await readInput('Description:');
+        tasksCollection.createTask(description);
         break;
 
       case 2:
