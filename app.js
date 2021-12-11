@@ -5,7 +5,8 @@ const {
   pause,
   readInput,
   showTasksToDelete,
-  confirmQuestion
+  confirmQuestion,
+  showTasksInChecklist
 } = require('./helpers/inquirer');
 const { saveData, readData } = require('./helpers/storage-manager');
 const TasksCollection = require('./models/tasks-collection');
@@ -39,6 +40,12 @@ const main = async () => {
       case 4:
         console.log();
         tasksCollection.showPendingTasksFormatted();
+        break;
+
+      case 5:
+        console.log();
+        const ids = await showTasksInChecklist(tasksCollection.tasksArray);
+        console.log(ids);
         break;
 
       case 6:
