@@ -22,7 +22,17 @@ const main = async () => {
 
       case 2:
         console.log();
-        tasksCollection.showAllTaskFormatted();
+        tasksCollection.showAllTasksFormatted();
+        break;
+
+      case 3:
+        console.log();
+        tasksCollection.showCompletedTasksFormatted();
+        break;
+
+      case 4:
+        console.log();
+        tasksCollection.showPendingTasksFormatted();
         break;
     }
 
