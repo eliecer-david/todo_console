@@ -70,7 +70,7 @@ class TasksCollection {
       .filter(task => task.completedAt)
       .forEach((task, key) => {
         const index = key + 1;
-        console.log(`${ (index + '.').cyan } ${ task.description }`);
+        console.log(`${ (index + '.').cyan } ${ task.description } :: ${ task.completedAt.cyan }`);
       });
   }
 
