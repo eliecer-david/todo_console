@@ -11,8 +11,12 @@ const readData = () => {
         return {};
     }
 
-    let data = fs.readFileSync(filePath, { encoding: 'utf-8' });
-    return JSON.parse(data);
+    try {
+        let data = fs.readFileSync(filePath, { encoding: 'utf-8' });
+        return JSON.parse(data);
+    } catch (e) {
+        return {};
+    }
 }
 
 module.exports = {
