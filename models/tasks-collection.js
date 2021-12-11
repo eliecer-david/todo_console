@@ -6,7 +6,7 @@ class TasksCollection {
     this.tasks = data;
   }
 
-  get arrayTasks() {
+  get tasksArray() {
     const array = [];
 
     Object.keys(this.tasks).forEach(key => {

@@ -21,11 +21,11 @@ const main = async () => {
         break;
 
       case 2:
-        console.log(tasksCollection.arrayTasks);
+        console.log(tasksCollection.tasksArray);
         break;
     }
 
-    saveData(tasksCollection.arrayTasks);
+    saveData(tasksCollection.tasksArray);
 
     if  (option != 0) await pause();
   } while (option != 0)
