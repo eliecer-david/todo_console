@@ -24,6 +24,30 @@ class TasksCollection {
     this.tasks[task.id] = task;
   }
 
+  markTaskAsCompleted(id) {
+    if (this.tasks[id].completedAt) {
+      return ;
+    }
+
+    this.tasks[id].completedAt = new Date().toISOString();
+  }
+
+  markTaskAsIncompleted(id) {
+    this.tasks[id].completedAt = null;
+  }
+
+  completeTasks(ids = []) {
+    this.tasksArray.forEach(task => {
+      const id = task.id;
+
+      if (ids.find(value => value == id)) {
+        this.markTaskAsCompleted(id);
+      } else {
+        this.markTaskAsIncompleted(id);
+      }
+    });
+  }
+
   deleteTask(id) {
     delete this.tasks[id];
   }

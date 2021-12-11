@@ -45,7 +45,7 @@ const main = async () => {
       case 5:
         console.log();
         const ids = await showTasksInChecklist(tasksCollection.tasksArray);
-        console.log(ids);
+        tasksCollection.completeTasks(ids);
         break;
 
       case 6:
