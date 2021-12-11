@@ -30,6 +30,19 @@ const inquirerMenu = async () => {
     return option;
 }
 
+const pause = async () => {
+    const questions = [
+        {
+            type: 'input',
+            name: 'continue',
+            message: `Press ${ 'any key'.green } to continue ...`
+        }
+    ];
+
+    console.log('\n');
+    await inquirer.prompt(questions);
+}
+
 module.exports = {
-    inquirerMenu
+    inquirerMenu, pause
 }
