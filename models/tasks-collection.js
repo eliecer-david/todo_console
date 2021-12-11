@@ -2,7 +2,7 @@ const Task = require('./task');
 
 class TasksCollection {
 
-  constructor(data) {
+  constructor(data = {}) {
     this.tasks = data;
   }
 
@@ -20,6 +20,12 @@ class TasksCollection {
   createTask(description = '') {
     const task = new Task(description);
     this.tasks[task.id] = task;
+  }
+
+  loadTasksFromArray(array = []) {
+    array.forEach((value) => {
+      this.tasks[value.id] = value;
+    });
   }
 }
 

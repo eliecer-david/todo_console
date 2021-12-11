@@ -7,8 +7,9 @@ const TasksCollection = require('./models/tasks-collection');
 const main = async () => {
   let option = '';
 
+  const tasksCollection = new TasksCollection();
   const initialData = readData();
-  const tasksCollection = new TasksCollection(initialData);
+  tasksCollection.loadTasksFromArray(initialData);
 
   do {
     option = await inquirerMenu();
@@ -24,7 +25,7 @@ const main = async () => {
         break;
     }
 
-    saveData(tasksCollection.tasks);
+    saveData(tasksCollection.arrayTasks);
 
     if  (option != 0) await pause();
   } while (option != 0)
