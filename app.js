@@ -18,7 +18,7 @@ const main = async () => {
         break;
 
       case 2:
-        console.log(tasksCollection.tasks);
+        console.log(tasksCollection.arrayTasks);
         break;
     }
 
